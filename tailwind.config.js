@@ -1,4 +1,7 @@
-/** @type {import('tailwindcss').Config} */
+// @type {import('tailwindcss').Config}
+
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,6 +10,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        green: {
+          550: "#44a755",
+        },
+        primary: colors.green,
+        secondary: colors.indigo,
+        neutral: colors.gray,
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
