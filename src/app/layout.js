@@ -9,7 +9,11 @@ import Footer from "../components/Footer";
 
 import Aos from "aos";
 import 'aos/dist/aos.css';
+
 import { useEffect } from "react"; 
+
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -31,6 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} font-inter antialiased bg-white text-gray-900 tracking-tight`}>
+        <ToastContainer />
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />
           <main className="grow">

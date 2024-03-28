@@ -1,9 +1,13 @@
-'use client'
-import { useState } from 'react';
+"use client"
+
+import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 export default function Home() {
   const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    gender: 'Select Gender',
     email: '',
     password: '',
   });
@@ -23,7 +27,7 @@ export default function Home() {
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length === 0) {
       // Submit form data
-      toast.success("Sign in successfully!");
+      toast.success("Register successfully!");
       console.log(formData);
     } else {
       toast.error("Please enter valid & required value!");
@@ -33,6 +37,18 @@ export default function Home() {
 
   const validateForm = (data) => {
     let errors = {};
+
+    if (!data.firstName.trim()) {
+      errors.firstName = 'First name is required';
+    }
+
+    if (!data.lastName.trim()) {
+      errors.lastName = 'Last name is required';
+    }
+
+    if (data.gender === 'Select Gender') {
+      errors.gender = 'Gender is required';
+    }
 
     if (!/\S+@\S+\.\S+/.test(data.email)) {
       errors.email = 'Email is invalid';
@@ -51,12 +67,70 @@ export default function Home() {
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <h2 className="mt-10 text-center text-2xl sm:text-3xl font-bold leading-9 tracking-tight text-gray-900">
-              Sign in to your account
+              Create your account
             </h2>
           </div>
 
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form className="space-y-6" onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="firstName" className="block text-sm font-medium leading-6 text-gray-900">
+                  First Name
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="firstName"
+                    name="firstName"
+                    type="text"
+                    autoComplete="firstName"
+                    required
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-550 sm:text-sm sm:leading-6 ${errors.firstName ? 'border-red-500' : ''}`}
+                  />
+                  {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-medium leading-6 text-gray-900">
+                  Last Name
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    autoComplete="lastName"
+                    required
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-550 sm:text-sm sm:leading-6 ${errors.lastName ? 'border-red-500' : ''}`}
+                  />
+                  {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="gender" className="block text-sm font-medium leading-6 text-gray-900">
+                  Gender
+                </label>
+                <div className="mt-2">
+                  <select
+                    id="gender"
+                    name="gender"
+                    className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-550 sm:text-sm sm:leading-6 ${errors.gender ? 'border-red-500' : ''}`}
+                    value={formData.gender}
+                    onChange={handleChange}
+                  >
+                    <option>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                  {errors.gender && <p className="text-red-500 text-sm mt-1">{errors.gender}</p>}
+                </div>
+              </div>
+
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                   Email address
@@ -77,16 +151,9 @@ export default function Home() {
               </div>
 
               <div>
-                <div className="flex items-center justify-between">
-                  <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                    Password
-                  </label>
-                  <div className="text-sm">
-                    <a href="#" className="font-semibold text-green-550 hover:text-green-600">
-                      Forgot password?
-                    </a>
-                  </div>
-                </div>
+                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                  Password
+                </label>
                 <div className="mt-2">
                   <input
                     id="password"
@@ -107,17 +174,10 @@ export default function Home() {
                   type="submit"
                   className="flex w-full justify-center rounded-md bg-green-550 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
                 >
-                  Sign in
+                  Register
                 </button>
               </div>
             </form>
-
-            <p className="mt-10 text-center text-sm text-gray-500">
-              Not a member?{' '}
-              <a href="#" className="font-semibold leading-6 text-green-550 hover:text-green-600">
-                Start a 14 day free trial
-              </a>
-            </p>
           </div>
         </div>
       </div>
