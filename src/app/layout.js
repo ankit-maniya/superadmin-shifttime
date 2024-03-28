@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
             {children}
           </main>
           <Footer />
-          <Banner />
+          {/* <Banner /> */}
         </div>
       </body>
     </html>

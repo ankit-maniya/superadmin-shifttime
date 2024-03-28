@@ -32,7 +32,7 @@ export default function Features() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h2 mb-4">Explore the solutions</h1>
+            <h1 className="h2 mb-4">Explore the Software</h1>
             <p className="text-xl text-gray-600">Discover ShiftTime&apos;s intuitive features tailored for modern businesses. Streamline workforce management and optimize time effortlessly</p>
           </div>
 
