@@ -19,10 +19,10 @@ export default function FeaturesBlocks() {
             <div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
   
               {/* 1st item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+              <div className="relative flex flex-col items-center p-6 bg-white border-solid border-green-550 border-2 rounded shadow-xl">
                 <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fillRule="evenodd">
-                    <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
+                    <rect className="fill-current text-green-550" width="64" height="64" rx="32" />
                     <g strokeWidth="2">
                       <path className="stroke-current text-blue-300" d="M34.514 35.429l2.057 2.285h8M20.571 26.286h5.715l2.057 2.285" />
                       <path className="stroke-current text-white" d="M20.571 37.714h5.715L36.57 26.286h8" />
@@ -31,15 +31,15 @@ export default function FeaturesBlocks() {
                     </g>
                   </g>
                 </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Headless CMS</h4>
-                <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Shift Time</h4>
+                <p className="text-gray-600 text-center">Efficiently create and manage employee schedules tailored for restaurants.</p>
               </div>
   
               {/* 2nd item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+              <div className="relative flex flex-col items-center p-6 bg-white border-solid border-green-550 border-2 rounded shadow-xl">
                 <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fillRule="evenodd">
-                    <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
+                    <rect className="fill-current text-green-550" width="64" height="64" rx="32" />
                     <g strokeWidth="2" transform="translate(19.429 20.571)">
                       <circle className="stroke-current text-white" strokeLinecap="square" cx="12.571" cy="12.571" r="1.143" />
                       <path className="stroke-current text-white" d="M19.153 23.267c3.59-2.213 5.99-6.169 5.99-10.696C25.143 5.63 19.514 0 12.57 0 5.63 0 0 5.629 0 12.571c0 4.527 2.4 8.483 5.99 10.696" />
@@ -47,15 +47,15 @@ export default function FeaturesBlocks() {
                     </g>
                   </g>
                 </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Headless CMS</h4>
-                <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Stock Track</h4>
+                <p className="text-gray-600 text-center">Track and adjust inventory levels based on shift-specific demand.</p>
               </div>
   
               {/* 3rd item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+              <div className="relative flex flex-col items-center p-6 bg-white border-solid border-green-550 border-2 rounded shadow-xl">
                 <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fillRule="evenodd">
-                    <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
+                    <rect className="fill-current text-green-550" width="64" height="64" rx="32" />
                     <g strokeWidth="2">
                       <path className="stroke-current text-blue-300" d="M34.743 29.714L36.57 32 27.43 43.429H24M24 20.571h3.429l1.828 2.286" />
                       <path className="stroke-current text-white" strokeLinecap="square" d="M34.743 41.143l1.828 2.286H40M40 20.571h-3.429L27.43 32l1.828 2.286" />
@@ -64,15 +64,15 @@ export default function FeaturesBlocks() {
                     </g>
                   </g>
                 </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Headless CMS</h4>
-                <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Performance Monitor</h4>
+                <p className="text-gray-600 text-center">Monitor restaurant performance metrics in real-time during each shift.</p>
               </div>
   
               {/* 4th item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+              <div className="relative flex flex-col items-center p-6 bg-white border-solid border-green-550 border-2 rounded shadow-xl">
                 <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fillRule="evenodd">
-                    <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
+                    <rect className="fill-current text-green-550" width="64" height="64" rx="32" />
                     <g strokeWidth="2">
                       <path className="stroke-current text-white" d="M32 37.714A5.714 5.714 0 0037.714 32a5.714 5.714 0 005.715 5.714" />
                       <path className="stroke-current text-white" d="M32 37.714a5.714 5.714 0 015.714 5.715 5.714 5.714 0 015.715-5.715M20.571 26.286a5.714 5.714 0 005.715-5.715A5.714 5.714 0 0032 26.286" />
@@ -81,15 +81,15 @@ export default function FeaturesBlocks() {
                     </g>
                   </g>
                 </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Headless CMS</h4>
-                <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Team Chat</h4>
+                <p className="text-gray-600 text-center">Streamline shift communication with a dedicated team messaging platform.</p>
               </div>
   
               {/* 5th item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+              <div className="relative flex flex-col items-center p-6 bg-white border-solid border-green-550 border-2 rounded shadow-xl">
                 <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fillRule="evenodd">
-                    <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
+                    <rect className="fill-current text-green-550" width="64" height="64" rx="32" />
                     <g strokeWidth="2">
                       <path className="stroke-current text-white" d="M19.429 32a12.571 12.571 0 0021.46 8.89L23.111 23.11A12.528 12.528 0 0019.429 32z" />
                       <path className="stroke-current text-blue-300" d="M32 19.429c6.943 0 12.571 5.628 12.571 12.571M32 24a8 8 0 018 8" />
@@ -97,23 +97,23 @@ export default function FeaturesBlocks() {
                     </g>
                   </g>
                 </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Headless CMS</h4>
-                <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Table Optimize</h4>
+                <p className="text-gray-600 text-center">Optimize table assignments and waitlist management during shifts.</p>
               </div>
   
               {/* 6th item */}
-              <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
+              <div className="relative flex flex-col items-center p-6 bg-white border-solid border-green-550 border-2 rounded shadow-xl">
                 <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                   <g fill="none" fillRule="evenodd">
-                    <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
+                    <rect className="fill-current text-green-550" width="64" height="64" rx="32" />
                     <g strokeWidth="2" strokeLinecap="square">
                       <path className="stroke-current text-white" d="M29.714 40.358l-4.777 2.51 1.349-7.865-5.715-5.57 7.898-1.147L32 21.13l3.531 7.155 7.898 1.147L40 32.775" />
                       <path className="stroke-current text-blue-300" d="M44.571 43.429H34.286M44.571 37.714H34.286" />
                     </g>
                   </g>
                 </svg>
-                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Headless CMS</h4>
-                <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Training Hub</h4>
+                <p className="text-gray-600 text-center">Streamline employee training and onboarding processes with modules.</p>
               </div>
   
             </div>
