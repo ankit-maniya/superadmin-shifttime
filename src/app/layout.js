@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 import Aos from "aos";
 import 'aos/dist/aos.css';
 
-import { useEffect } from "react"; 
+import { useEffect } from "react";
 
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';

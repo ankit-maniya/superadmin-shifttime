@@ -1,13 +1,19 @@
 'use client'
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation'
 
 import Wrapper from '../../components/Wrapper'
+import UserService from '@/lib/Services/user.service';
+import Utils from '@/lib/Utils';
 
 export default function SignIn() {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
+    clientId: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -20,13 +26,24 @@ export default function SignIn() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length === 0) {
       // Submit form data
-      toast.success("Sign in successfully!");
-      console.log(formData);
+
+      try {
+        console.log(formData);
+        const data = await UserService.login(formData.email, formData.password, formData.clientId);
+        if(data?.response)
+          Utils.setLocalStorage('currUser', JSON.stringify(data?.response));
+          router.push('/dashboard');
+        
+        toast.success("Sign in successfully!");
+      } catch (error) {
+        console.log("error ----> ", error.message);
+        toast.error(error?.message || "Something went wrong!");
+      }
     } else {
       toast.error("Please enter valid & required value!");
       setErrors(validationErrors);
@@ -42,6 +59,10 @@ export default function SignIn() {
 
     if (data.password.length < 6) {
       errors.password = 'Password should be at least 6 characters';
+    }
+
+    if (data.clientId.length < 3) {
+      errors.clientId = 'Client Id Required!';
     }
 
     return errors;
@@ -99,6 +120,25 @@ export default function SignIn() {
                 className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-550 sm:text-sm sm:leading-6 ${errors.password ? 'border-red-500' : ''}`}
               />
               {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="clientId" className="block text-sm font-medium leading-6 text-gray-900">
+              clientId
+            </label>
+            <div className="mt-2">
+              <input
+                id="clientId"
+                name="clientId"
+                type="number"
+                autoComplete="clientId"
+                required
+                value={formData.clientId}
+                onChange={handleChange}
+                className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-550 sm:text-sm sm:leading-6 ${errors.clientId ? 'border-red-500' : ''}`}
+              />
+              {errors.clientId && <p className="text-red-500 text-sm mt-1">{errors.clientId}</p>}
             </div>
           </div>
 
