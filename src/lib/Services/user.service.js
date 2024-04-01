@@ -21,11 +21,9 @@ export default class UserService {
         return response?.data
     }
 
-    static async signup(email, password, clientId) {
+    static async signup(formData) {
         const response = await sAxios.post(`/users/signup/`, {
-            email,
-            password,
-            loginWith: 0
+            ...formData
         }, {
             headers: {
                 'content-type': 'application/x-www-form-urlencoded'

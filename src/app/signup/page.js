@@ -2,17 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 import Wrapper from '../../components/Wrapper'
 import UserService from '@/lib/Services/user.service';
+import { ROLES } from '@/lib/constant';
+import Utils from '@/lib/Utils';
 
 export default function SignUp() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     gender: 'Select Gender',
     email: '',
     password: '',
+    loginWith: 0,
+    role: ROLES.ADMIN,
   });
 
   const [errors, setErrors] = useState({});
@@ -33,7 +39,7 @@ export default function SignUp() {
 
       try {
         console.log(formData);
-        const data = await UserService.signup(formData.email, formData.password, formData.clientId);
+        const data = await UserService.signup(formData);
         if (data?.response)
           Utils.setLocalStorage('currUser', JSON.stringify(data?.response));
           router.push('/dashboard');

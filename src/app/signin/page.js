@@ -34,7 +34,7 @@ export default function SignIn() {
 
       try {
         console.log(formData);
-        const data = await UserService.login(formData.email, formData.password, formData.clientId);
+        const data = await UserService.login(formData);
         if(data?.response)
           Utils.setLocalStorage('currUser', JSON.stringify(data?.response));
           router.push('/dashboard');
