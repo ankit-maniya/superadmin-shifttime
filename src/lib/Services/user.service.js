@@ -6,11 +6,9 @@ export default class UserService {
         return response.data
     }
 
-    static async login(email, password, clientId) {
+    static async login(formData) {
         const response = await sAxios.post(`/users/login/`, {
-            email,
-            password,
-            clientId,
+            ...formData,
             loginWith: 0
         }, {
             headers: {
@@ -19,6 +17,22 @@ export default class UserService {
         })
 
         console.log("response", response?.data);
+
+        return response?.data
+    }
+
+    static async signup(email, password, clientId) {
+        const response = await sAxios.post(`/users/signup/`, {
+            email,
+            password,
+            loginWith: 0
+        }, {
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded'
+            }
+        })
+
+        console.log("signup response", response?.data);
 
         return response?.data
     }
