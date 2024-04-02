@@ -9,7 +9,7 @@ export default class Utils {
         return response
     }
 
-    static async hasWindowObject() {
+    static hasWindowObject() {
         return typeof window !== 'undefined';
     }
 
