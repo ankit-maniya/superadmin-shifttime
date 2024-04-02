@@ -20,7 +20,7 @@ export default function Header(props) {
   }
 
   useEffect(() => {
-    if(typeof window !== 'undefined' && currUser == null){
+    if(Utils.hasWindowObject() && currUser == null){
       setCurrUser(Utils.getCurrentUser());
     }
   }, [props, currUser])

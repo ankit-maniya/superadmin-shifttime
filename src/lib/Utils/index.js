@@ -9,14 +9,18 @@ export default class Utils {
         return response
     }
 
+    static async hasWindowObject() {
+        return typeof window !== 'undefined';
+    }
+
     static async logout() {
-        if (typeof window !== 'undefined') {
+        if (this.hasWindowObject()) {
             localStorage.removeItem('currUser');
         }
     }
 
     static getCurrentUser() {
-        if (typeof window !== 'undefined') {
+        if (this.hasWindowObject()) {
             return JSON.parse(window.localStorage.getItem('currUser'));
         }
 
@@ -24,7 +28,7 @@ export default class Utils {
     }
 
     static getLocalStorage(key) {
-        if (typeof window !== 'undefined') {
+        if (this.hasWindowObject()) {
             return localStorage.getItem(key);
         }
 
@@ -32,7 +36,7 @@ export default class Utils {
     }
 
     static setLocalStorage(key, value) {
-        if (typeof window !== 'undefined') {
+        if (this.hasWindowObject()) {
             localStorage.setItem(key, value);
         }
     }
