@@ -33,7 +33,6 @@ export default function SignIn() {
       // Submit form data
 
       try {
-        console.log(formData);
         const data = await UserService.login(formData);
         if(data?.response)
           Utils.setLocalStorage('currUser', JSON.stringify(data?.response));

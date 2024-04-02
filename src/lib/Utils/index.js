@@ -9,15 +9,31 @@ export default class Utils {
         return response
     }
 
+    static async logout() {
+        if (typeof window !== 'undefined') {
+            localStorage.removeItem('currUser');
+        }
+    }
+
     static getCurrentUser() {
-        return JSON.parse(localStorage.getItem('currUser'));
+        if (typeof window !== 'undefined') {
+            return JSON.parse(window.localStorage.getItem('currUser'));
+        }
+
+        return null;
     }
 
     static getLocalStorage(key) {
-        return localStorage.getItem(key);
+        if (typeof window !== 'undefined') {
+            return localStorage.getItem(key);
+        }
+
+        return null;
     }
 
     static setLocalStorage(key, value) {
-        localStorage.setItem(key, value);
+        if (typeof window !== 'undefined') {
+            localStorage.setItem(key, value);
+        }
     }
 }  

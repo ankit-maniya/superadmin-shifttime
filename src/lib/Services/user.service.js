@@ -16,7 +16,7 @@ export default class UserService {
             }
         })
 
-        console.log("response", response?.data);
+        console.log("login response", response?.data);
 
         return response?.data
     }

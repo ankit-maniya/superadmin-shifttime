@@ -10,10 +10,11 @@ import Footer from "../components/Footer";
 import Aos from "aos";
 import 'aos/dist/aos.css';
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { usePathname } from "next/navigation";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -22,6 +23,7 @@ const inter = Inter({
 })
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname()
 
   useEffect(() => {
     Aos.init({
@@ -37,7 +39,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} font-inter antialiased bg-white text-gray-900 tracking-tight`}>
         <ToastContainer />
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
-          <Header />
+          <Header key={pathname}/>
           <main className="grow">
             {children}
           </main>

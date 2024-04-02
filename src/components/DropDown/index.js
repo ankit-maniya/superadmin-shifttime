@@ -8,7 +8,7 @@ export default function Dropdown({
   title
 }) {
 
-  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
 
   return (
     <li
