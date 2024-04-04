@@ -3,3 +3,8 @@ export const ROLES = {
     ADMIN: 'ADMIN',
     USER: 'USER'
 };
+
+export const ACTION = {
+    TRUE: true,
+    FALSE: false
+};

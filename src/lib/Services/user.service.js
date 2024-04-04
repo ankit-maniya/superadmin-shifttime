@@ -1,4 +1,5 @@
 import sAxios from "../Axios"
+import { ROLES } from "../constant";
 
 export default class UserService {
     static async getUser(userId = localStorage.getItem('userId')) {
@@ -32,6 +33,20 @@ export default class UserService {
 
         console.log("signup response", response?.data);
 
+        return response?.data
+    }
+
+    static async deleteUser(id) {
+        const response = await sAxios.delete(`/users/${id}`)
+
+        console.log("Delete Response", response?.data);
+
+        return response?.data;
+    }
+
+    static async getAllAdmin() {
+        const query = `?query={"isActive": true, "role": "${ROLES.ADMIN}"}`
+        const response = await sAxios.get(`/users${query}`)
         return response?.data
     }
 }  
