@@ -62,6 +62,10 @@ export default function Header(props) {
                 <Link href="/aboutus" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">About Us</Link>
               </li>
 
+              {role == ROLES.ADMIN && (<li>
+                <Link href="/dashboard" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Dashboard</Link>
+              </li>)}
+
               {!currUser &&
                 (<>
                   <li>

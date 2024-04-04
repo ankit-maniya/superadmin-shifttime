@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import Wrapper from '../../components/Wrapper'
 import UserService from '@/lib/Services/user.service';
 import Utils from '@/lib/Utils';
+import Link from 'next/link';
 
 export default function SignIn() {
   const router = useRouter();
@@ -153,9 +154,14 @@ export default function SignIn() {
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Not a member?{' '}
-          <a href="#" className="font-semibold leading-6 text-green-550 hover:text-green-600">
-            Start a 14 day free trial
+          <a href="/signup" className="font-semibold leading-6 text-green-550 hover:text-green-600">
+            Start a 6 months free trial
           </a>
+        </p>
+        <p className="mt-3 text-center text-sm text-gray-500">
+          <Link href="/superadmin" className="font-semibold leading-6 text-indigo-500 hover:text-indigo-600">
+            Login As Admin
+          </Link>
         </p>
       </div>
     </Wrapper>
