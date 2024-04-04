@@ -8,6 +8,7 @@ import Dropdown from '../DropDown'
 import MobileMenu from '../MobileMenu'
 import Utils from '@/lib/Utils'
 import { useRouter } from 'next/navigation'
+import { ROLES } from '@/lib/constant'
 
 export default function Header(props) {
   const router = useRouter();
@@ -40,6 +41,8 @@ export default function Header(props) {
       console.log("error ----> ", error.message);
     }
   }
+
+  const role = currUser?.user?.role;
 
   return (
     <header className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top ? 'bg-white backdrop-blur-sm shadow-lg' : ''}`}>
@@ -76,13 +79,19 @@ export default function Header(props) {
               }
 
               {currUser &&
-                (<Dropdown title={currUser?.user?.firstName}>
-                  <li>
-                    <Link href="#" onClick={() => {
-                      logoutCurrUser();
-                    }} className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Logout</Link>
-                  </li>
-                </Dropdown>)
+                (<>
+                  {role == ROLES.SUPERADMIN && (<li>
+                    <Link href="/superadmin/admin" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Employee</Link>
+                  </li>)}
+                  <Dropdown title={currUser?.user?.firstName}>
+                    <li>
+                      <Link href="#" onClick={() => {
+                        logoutCurrUser();
+                      }} className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Logout</Link>
+                    </li>
+                  </Dropdown>
+
+                </>)
               }
             </ul>
 
@@ -92,6 +101,6 @@ export default function Header(props) {
 
         </div>
       </div>
-    </header>
+    </header >
   )
 }

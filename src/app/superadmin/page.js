@@ -37,7 +37,7 @@ export default function SignIn() {
         const data = await UserService.login(formData);
         if(data?.response)
           Utils.setLocalStorage('currUser', JSON.stringify(data?.response));
-          router.replace('/admin/dashboard');
+          router.replace('/superadmin/dashboard');
         
         toast.success("Sign in successfully!");
       } catch (error) {
