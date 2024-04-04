@@ -20,7 +20,7 @@ export default function Header(props) {
   }
 
   useEffect(() => {
-    if(Utils.hasWindowObject() && currUser == null){
+    if (Utils.hasWindowObject() && currUser == null) {
       setCurrUser(Utils.getCurrentUser());
     }
   }, [props, currUser])
@@ -55,6 +55,10 @@ export default function Header(props) {
           <nav className="hidden md:flex md:grow">
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
+              <li>
+                <Link href="/aboutus" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">About Us</Link>
+              </li>
+
               {!currUser &&
                 (<>
                   <li>
@@ -84,7 +88,7 @@ export default function Header(props) {
 
           </nav>
 
-          <MobileMenu logoutCurrUser={logoutCurrUser} currUser={currUser}/>
+          <MobileMenu logoutCurrUser={logoutCurrUser} currUser={currUser} />
 
         </div>
       </div>

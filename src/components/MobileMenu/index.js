@@ -65,6 +65,9 @@ export default function MobileMenu(props) {
           leaveTo="opacity-0"
         >
           <ul className="px-5 py-2">
+            <li>
+              <Link href="/aboutus" className="flex font-medium w-full text-gray-600 hover:text-gray-900 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>About Us</Link>
+            </li>
 
             {!props?.currUser &&
               <>
