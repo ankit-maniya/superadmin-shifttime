@@ -57,7 +57,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -83,7 +83,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -107,7 +107,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -131,7 +131,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -185,7 +185,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -211,7 +211,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -235,7 +235,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -259,7 +259,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -313,7 +313,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -339,7 +339,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -363,7 +363,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
@@ -387,7 +387,7 @@ export default function Pricing() {
                                         className="w-4 h-4 text-green-550"
                                         viewBox="0 0 24 24"
                                         strokeLinecap="round"
-                                        strokeLidth="2"
+                                        strokelidth="2"
                                     >
                                         <polyline
                                             fill="none"
