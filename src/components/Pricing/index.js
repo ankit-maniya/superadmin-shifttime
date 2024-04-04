@@ -44,7 +44,7 @@ export default function Pricing() {
                     <div className="text-center">
                         <div className="text-lg font-semibold">Gold</div>
                         <div className="flex items-center justify-center mt-2">
-                            <div className="mr-1 text-5xl font-bold">$15</div>
+                            <div className="mr-1 text-5xl font-bold">FREE</div>
                             <div className="text-gray-700">/ mo</div>
                         </div>
                     </div>
@@ -156,7 +156,7 @@ export default function Pricing() {
                             href="/"
                             className="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded shadow-md hover:bg-green-550 focus:shadow-outline focus:outline-none"
                         >
-                            Start with less
+                            Start with Free 6 Months
                         </a>
                         <p className="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
                             A cost-effective solution for basic shift management needs.
