@@ -3,7 +3,7 @@ import { ROLES } from "../constant";
 
 export default class UserService {
     static async getUser(userId = localStorage.getItem('userId')) {
-        const response = await sAxios.get(`/customers/${userId}`)
+        const response = await sAxios.get(`/users/${userId}`)
         return response.data
     }
 
@@ -32,6 +32,20 @@ export default class UserService {
         })
 
         console.log("signup response", response?.data);
+
+        return response?.data
+    }
+
+    static async updateUser(id, formData) {
+        const response = await sAxios.put(`/users/${id}`, {
+            ...formData
+        }, {
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded'
+            }
+        })
+
+        console.log("update user response", response?.data);
 
         return response?.data
     }

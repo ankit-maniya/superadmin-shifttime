@@ -2,24 +2,56 @@
 
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { useRouter } from 'next/navigation';
 
 import UserService from '@/lib/Services/user.service';
 import { ROLES } from '@/lib/constant';
-import Utils from '@/lib/Utils';
 import AdminWrapper from '@/components/AdminWrapper';
 
-export default function AddAdminPage() {
-    const router = useRouter();
+export default function EditAdminPage({ params }) {
+    const [userId, setUserId] = useState(params?.id || null);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         gender: 'Select Gender',
         email: '',
-        password: 'ShiftTime',
         loginWith: 0,
         role: ROLES.ADMIN,
     });
+
+    useEffect(() => {
+        fetchUser();
+    }, []);
+
+    const fetchUser = async () => {
+        if (userId) {
+            try {
+                const data = await UserService.getUser(userId);
+                if (data?.response) {
+                    const currUser = data?.response || {};
+
+                    const whatToUpdate = {
+                        firstName: currUser?.firstName,
+                        lastName: currUser?.lastName,
+                        gender: currUser?.gender,
+                        email: currUser?.email,
+                        loginWith: 0,
+                        role: currUser?.role,
+                    }
+
+                    setFormData(whatToUpdate);
+                } else {
+                    toast.error("User Not Found!");
+                    setUserId(null)
+                }
+            } catch (error) {
+                console.log("Fetch User error ----> ", error.message);
+                setUserId(null)
+                toast.error("User Not Found!");
+            }
+        }
+    }
+
+
 
     const [errors, setErrors] = useState({});
 
@@ -38,11 +70,10 @@ export default function AddAdminPage() {
             // Submit form data
 
             try {
-                const data = await UserService.signup(formData);
+                const data = await UserService.updateUser(userId, formData);
+
                 if (data?.response) {
-                    // Utils.setLocalStorage('currUser', JSON.stringify(data?.response));
-                    router.push('/superadmin/admin');
-                    toast.success("Register successfully!");
+                    toast.success("User updated successfully!");
                 } else {
                     toast.error("Something went wrong!");
                 }
@@ -83,11 +114,11 @@ export default function AddAdminPage() {
         <AdminWrapper>
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <h2 className="mt-10 text-center text-2xl sm:text-3xl font-bold leading-9 tracking-tight text-gray-900">
-                    Add New Account
+                    Update Account
                 </h2>
             </div>
 
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            {userId && <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="firstName" className="block text-sm font-medium leading-6 text-gray-900">
@@ -167,34 +198,18 @@ export default function AddAdminPage() {
                     </div>
 
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                            Password
-                        </label>
-                        <div className="mt-2">
-                            <input
-                                id="password"
-                                name="password"
-                                type="text"
-                                autoComplete="current-password"
-                                required
-                                value={formData.password}
-                                onChange={handleChange}
-                                className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-550 sm:text-sm sm:leading-6 ${errors.password ? 'border-red-500' : ''}`}
-                            />
-                            {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
-                        </div>
-                    </div>
-
-                    <div>
                         <button
                             type="submit"
                             className="flex w-full justify-center rounded-md bg-green-550 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
                         >
-                            Add
+                            Update
                         </button>
                     </div>
                 </form>
             </div>
+            }
+
+            {!userId && <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">User Not Found</div>}
         </AdminWrapper>
     );
 }

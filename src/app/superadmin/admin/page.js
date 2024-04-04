@@ -65,11 +65,7 @@ export default function Admin() {
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                     <Link
-                        // href={{
-                        //     pathname: '/superadmin/admin/edit/[slug]',
-                        //     query: { slug: encodeURIComponent(admin._id) },
-                        //   }}
-                        href={`/superadmin/admin/edit?id=${encodeURIComponent(admin._id)}`}
+                        href={`/superadmin/admin/${encodeURIComponent(admin._id)}`}
                         className="rounded-md bg-yellow-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600">Edit</Link>
                     <Link href="#" onClick={() => {
                         handleModel(true)
