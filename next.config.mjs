@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
+    reactStrictMode: false,
     images: {
         domains: ['tailwindui.com', 'via.placeholder.com', 'images.unsplash.com'],
     },
