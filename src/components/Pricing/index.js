@@ -42,7 +42,7 @@ export default function Pricing() {
             <div className="grid max-w-md gap-10 row-gap-5 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto" data-aos="zoom-in-left" data-aos-delay="200">
                 <div className="flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow">
                     <div className="text-center">
-                        <div className="text-lg font-semibold">Gold</div>
+                        <div className="text-lg font-semibold">Silver</div>
                         <div className="flex items-center justify-center mt-2">
                             <div className="mr-1 text-5xl font-bold">FREE</div>
                             <div className="text-gray-700">/ mo</div>
@@ -170,7 +170,7 @@ export default function Pricing() {
                         </div>
                     </div>
                     <div className="text-center">
-                        <div className="text-lg font-semibold">Silver</div>
+                        <div className="text-lg font-semibold">Gold</div>
                         <div className="flex items-center justify-center mt-2">
                             <div className="mr-1 text-5xl font-bold">$38</div>
                             <div className="text-gray-700">/ mo</div>

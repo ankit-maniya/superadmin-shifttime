@@ -78,8 +78,6 @@ export default function Admin() {
 
     }
 
-    console.log("All Emp", admins);
-
     return (
         <AdminWrapper>
             <DeleteModal isOpen={isOpen} handleModel={handleModel} deleteUserInfo={deleteUserInfo} id={user._id} />

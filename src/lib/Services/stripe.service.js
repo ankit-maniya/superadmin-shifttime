@@ -12,4 +12,12 @@ export default class StripeService {
 
         return response?.data
     }
+
+    static async getAllProducts() {
+        const response = await sAxios.get(`/stripe/products`)
+
+        console.log("getAllProducts response", response?.data);
+
+        return response?.data
+    }
 }

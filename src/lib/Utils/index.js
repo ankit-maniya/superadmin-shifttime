@@ -1,6 +1,6 @@
 export default class Utils {
     static async handleResponseError(response) {
-        console.log("data ::1 ", response);
+        console.log("ERROR-1 ", response);
 
         if (response.type === "ERROR") {
             throw Error(response.message);
