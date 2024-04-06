@@ -1,26 +1,26 @@
 import Link from 'next/link'
 
-export default function Subscription({ plans, activePlan }) {
+export default function Subscription({ plans, activePlan, handlePlanSelection }) {
 
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <TitleBar />
       <div className="grid max-w-md gap-10 row-gap-5 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto" data-aos="zoom-in-left" data-aos-delay="200">
-        <Plans plans={plans} activePlan={activePlan} />
+        <Plans plans={plans} activePlan={activePlan} handlePlanSelection={handlePlanSelection}/>
       </div>
     </div >
   )
 }
 
-const Plans = ({ plans, activePlan }) => {
+const Plans = ({ plans, activePlan, handlePlanSelection }) => {
 
   return plans.map((plan, index) => {
 
-    return <PlanCard idx={index} key={index} plan={plan} activePlan={activePlan} />
+    return <PlanCard idx={index} key={index} plan={plan} activePlan={activePlan} handlePlanSelection={handlePlanSelection}/>
   })
 }
 
-const PlanCard = ({ plan, activePlan }) => {
+const PlanCard = ({ plan, activePlan,  handlePlanSelection}) => {
   const formatedprice = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD', currencyDisplay: 'symbol' }).format(plan?.default_price?.unit_amount / 100).replace('CA', '');
 
   return (
@@ -56,7 +56,8 @@ const PlanCard = ({ plan, activePlan }) => {
 
       <div>
         <Link
-          href="/"
+          onClick={() => handlePlanSelection(plan)}
+          href="#"
           className={`inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-m  focus:shadow-outline focus:outline-none ${plan?.metadata?.class} ${activePlan == plan.id ? 'pointer-events-none' : ''}`}
         >
           {plan?.metadata?.buttonText}

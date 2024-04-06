@@ -40,10 +40,9 @@ export default function SignUp() {
       try {
         const data = await UserService.signup(formData);
         if (data?.response)
-            Utils.setLocalStorage('currUser', JSON.stringify(data?.response));
-            router.push('/dashboard');
+            router.push('/signin');
 
-        toast.success("Register successfully!");
+        toast.success("Registered successfully!");
       } catch (error) {
         console.log("error ----> ", error.message);
         toast.error(error?.message || "Something went wrong!");
