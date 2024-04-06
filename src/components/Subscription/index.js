@@ -27,7 +27,7 @@ const PlanCard = ({ plan, activePlan }) => {
     <div className={`relative flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow ${activePlan == plan.id ? "border-green-550" : ""}`} data-aos="zoom-in" data-aos-delay="200">
       {activePlan == plan.id && <div className="absolute inset-x-0 top-0 flex justify-center -mt-3">
         <div className="inline-block px-3 py-1 text-xs font-medium tracking-wider text-white uppercase rounded bg-green-550">
-          Selected
+          Active Plan
         </div>
       </div>
       }

@@ -1,4 +1,24 @@
+"use client"
+
+import Utils from '@/lib/Utils';
+import Link from 'next/link';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
+
 export default function Pricing() {
+    const router = useRouter();
+
+    const checkUserLogin = () => {
+        const user = Utils.getCurrentUser();
+        if (!user) {
+            toast.warning('Please Login or SignUp to continue!');
+            return router.push('/signin');
+        }
+
+        toast.success('Please choose plan to continue!');
+        router.push('/subscription');
+    }
+
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -36,7 +56,7 @@ export default function Pricing() {
                     pricing. Pay as you grow.
                 </h2>
                 <p className="text-base text-gray-700 md:text-lg" data-aos="zoom-y-out" data-aos-delay="160">
-                Benefit from clear and flexible pricing as your business expands. Experience hassle-free shift management tailored to your needs.
+                    Benefit from clear and flexible pricing as your business expands. Experience hassle-free shift management tailored to your needs.
                 </p>
             </div>
             <div className="grid max-w-md gap-10 row-gap-5 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto" data-aos="zoom-in-left" data-aos-delay="200">
@@ -153,7 +173,8 @@ export default function Pricing() {
                     </div>
                     <div>
                         <a
-                            href="/"
+                            onClick={checkUserLogin}
+                            href="#"
                             className="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded shadow-md hover:bg-green-550 focus:shadow-outline focus:outline-none"
                         >
                             Start with Free 6 Months
@@ -281,7 +302,8 @@ export default function Pricing() {
                     </div>
                     <div>
                         <a
-                            href="/"
+                            onClick={checkUserLogin}
+                            href="#"
                             className="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-m  bg-green-550 hover:bg-gray-900 focus:shadow-outline focus:outline-none"
                         >
                             Buy Pro
@@ -409,7 +431,8 @@ export default function Pricing() {
                     </div>
                     <div>
                         <a
-                            href="/"
+                            onClick={checkUserLogin}
+                            href="#"
                             className="inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded shadow-md hover:bg-green-550 focus:shadow-outline focus:outline-none"
                         >
                             Buy Business
