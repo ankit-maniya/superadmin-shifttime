@@ -1,7 +1,6 @@
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-export default function Subscription({ plans, activePlan, handlePlanSelection }) {
+export default function SubscriptionItems({ plans, activePlan, handlePlanSelection }) {
   const [activePlanId, setActivePlanId] = useState(null);
 
   useEffect(() => {
@@ -56,13 +55,12 @@ const PlanCard = ({ plan, activePlan, id, handlePlanSelection }) => {
       </div>
 
       <div>
-        <Link
+        <button
           onClick={() => handlePlanSelection(plan)}
-          href="#"
           className={`inline-flex items-center justify-center w-full h-12 px-6 mt-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-m  focus:shadow-outline focus:outline-none ${plan?.metadata?.class} ${activePlan == plan.id ? 'pointer-events-none' : ''}`}
         >
           {plan?.metadata?.buttonText}
-        </Link>
+        </button>
         <p className="max-w-xs mt-6 text-xs text-gray-600 sm:text-sm sm:text-center sm:max-w-sm sm:mx-auto">
           {plan.description}
         </p>

@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
-import { BUSINESS_PLAN } from '@/lib/constant'
+import { BUSINESS_PLAN, PLAN_TYPE } from '@/lib/constant'
 import Utils from '@/lib/Utils'
 
 import AdminWrapper from '@/components/AdminWrapper'
-import Subscription from '@/components/Subscription'
+import SubscriptionItems from '@/components/SubscriptionItems'
 
 import StripeService from '@/lib/Services/stripe.service'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -42,6 +42,11 @@ export default function SubscriptionPage() {
         if (!currUser) {
             router.push("/signin");
             toast.warning("Please login to subscribe to a plan.")
+            return;
+        }
+
+        if (plan.name == PLAN_TYPE.PLATINUM) {
+            router.replace("/contactus");
             return;
         }
 
@@ -109,7 +114,7 @@ export default function SubscriptionPage() {
             <h2 className="mt-4 text-center text-2xl sm:text-3xl font-bold leading-9 tracking-tight text-gray-900">
                 Subscription
             </h2>
-            <Subscription plans={plans} activePlan={activePlan} handlePlanSelection={handlePlanSelection} />
+            <SubscriptionItems plans={plans} activePlan={activePlan} handlePlanSelection={handlePlanSelection} />
         </AdminWrapper>
     )
 }

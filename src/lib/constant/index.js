@@ -4,6 +4,12 @@ export const ROLES = {
     USER: 'USER'
 };
 
+export const PLAN_TYPE = {
+    SILVER: 'Silver',
+    GOLD: 'Gold',
+    PLATINUM: 'Platinum'
+}
+
 export const ACTION = {
     TRUE: true,
     FALSE: false
@@ -61,7 +67,7 @@ export const BUSINESS_PLAN = {
     "images": [],
     "livemode": false,
     "metadata": {
-        "buttonText": "Buy Business",
+        "buttonText": "Contact Us",
         "class": "bg-gray-900 hover:bg-green-550"
     },
     "name": "Platinum",

@@ -25,7 +25,7 @@ export default function Admin() {
     }
 
     const deleteUserInfo = async (res, id) => {
-        if(res == ACTION.FALSE) {
+        if (res == ACTION.FALSE) {
             handleModel(false);
             return;
         }
@@ -67,10 +67,10 @@ export default function Admin() {
                     <Link
                         href={`/superadmin/admin/${encodeURIComponent(admin._id)}`}
                         className="rounded-md bg-yellow-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600">Edit</Link>
-                    <Link href="#" onClick={() => {
+                    <button type="button" onClick={() => {
                         handleModel(true)
                         handleUser(admin)
-                    }} className="ml-1 rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Delete</Link>
+                    }} className="ml-1 rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Delete</button>
                 </td>
             </tr>);
         })
