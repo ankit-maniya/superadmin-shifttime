@@ -1,31 +1,32 @@
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 export default function Subscription({ plans, activePlan, handlePlanSelection }) {
+  const [activePlanId, setActivePlanId] = useState(null);
+
+  useEffect(() => {
+    setActivePlanId(activePlan);
+  }, [activePlan])
 
   return (
     <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <TitleBar />
       <div className="grid max-w-md gap-10 row-gap-5 lg:max-w-screen-lg sm:row-gap-10 lg:grid-cols-3 xl:max-w-screen-lg sm:mx-auto" data-aos="zoom-in-left" data-aos-delay="200">
-        <Plans plans={plans} activePlan={activePlan} handlePlanSelection={handlePlanSelection}/>
+
+        {plans.map((plan, index) => {
+          return <PlanCard id={plan.id} key={index} plan={plan} activePlan={activePlanId} handlePlanSelection={handlePlanSelection} />
+        })}
       </div>
     </div >
   )
 }
 
-const Plans = ({ plans, activePlan, handlePlanSelection }) => {
-
-  return plans.map((plan, index) => {
-
-    return <PlanCard idx={index} key={index} plan={plan} activePlan={activePlan} handlePlanSelection={handlePlanSelection}/>
-  })
-}
-
-const PlanCard = ({ plan, activePlan,  handlePlanSelection}) => {
+const PlanCard = ({ plan, activePlan, id, handlePlanSelection }) => {
   const formatedprice = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'CAD', currencyDisplay: 'symbol' }).format(plan?.default_price?.unit_amount / 100).replace('CA', '');
 
   return (
-    <div className={`relative flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow ${activePlan == plan.id ? "border-green-550" : ""}`} data-aos="zoom-in" data-aos-delay="200">
-      {activePlan == plan.id && <div className="absolute inset-x-0 top-0 flex justify-center -mt-3">
+    <div className={`relative flex flex-col justify-between p-8 transition-shadow duration-300 bg-white border rounded shadow-sm sm:items-center hover:shadow ${activePlan == id ? "border-green-550" : ""}`}>
+      {activePlan == id && <div className="absolute inset-x-0 top-0 flex justify-center -mt-3">
         <div className="inline-block px-3 py-1 text-xs font-medium tracking-wider text-white uppercase rounded bg-green-550">
           Active Plan
         </div>
@@ -122,7 +123,7 @@ const TitleBar = ({ title }) => {
         </svg>
         <span className="relative" >Current</span>
       </span>{' '}
-      Plan Information.
+      Plan Information
     </h2>
   </div>
 }
