@@ -7,6 +7,8 @@ export const metadata = {
 
 export default function SuperAdminDashboardLayout({ children }) {
   return (
-    <section>{children}</section>
+    <section>
+      {children}
+    </section>
   );
 }
