@@ -48,13 +48,11 @@ export default function SubscriptionPage() {
             return;
         }
 
-        const stripeCustomerId = currUser?.stripeCustomerId;
 
         const checkOutInfo = {
             priceId: plan.default_price.id,
             quantity: 1,
-            customer: stripeCustomerId ?? currUser?.user?._id,
-            createStripeCustomerId: stripeCustomerId ? false : true
+            customerId: currUser?.user?._id,
         }
 
         console.log(checkOutInfo);
