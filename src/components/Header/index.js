@@ -58,16 +58,22 @@ export default function Header(props) {
           <nav className="hidden md:flex md:grow">
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
-              <li>
-                <Link href="/aboutus" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">About Us</Link>
-              </li>
-
               {role == ROLES.ADMIN && (<>
                 <li>
                   <Link href="/dashboard" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Dashboard</Link>
                 </li>
                 <li>
                   <Link href="/subscription" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Subscription</Link>
+                </li>
+              </>)}
+
+              {(!role || role !== ROLES.SUPERADMIN) && (<>
+                <li>
+                  <Link href="/contactus" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Contact Us</Link>
+                </li>
+
+                <li>
+                  <Link href="/aboutus" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">About Us</Link>
                 </li>
               </>)}
 
@@ -89,9 +95,15 @@ export default function Header(props) {
 
               {currUser &&
                 (<>
-                  {role == ROLES.SUPERADMIN && (<li>
-                    <Link href="/superadmin/admin" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Employee</Link>
-                  </li>)}
+                  {role == ROLES.SUPERADMIN && (
+                    <>
+                      <li>
+                        <Link href="/superadmin/dashboard" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Dashboard</Link>
+                      </li>
+                      <li>
+                        <Link href="/superadmin/admin" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Employee</Link>
+                      </li>
+                    </>)}
                   <Dropdown title={currUser?.user?.firstName}>
                     <li>
                       <Link href="#" onClick={() => {
