@@ -37,7 +37,7 @@ export default function SignIn() {
         const data = await UserService.login(formData);
         if(data?.response)
           Utils.setLocalStorage('currUser', JSON.stringify(data?.response));
-          router.push('/dashboard');
+          router.push('/');
         
         toast.success("Sign in successfully!");
       } catch (error) {
