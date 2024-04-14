@@ -40,7 +40,7 @@ export default function SignUp() {
       try {
         const data = await UserService.signup(formData);
         if (data?.response)
-            router.push('/signin');
+          router.push('/signin');
 
         toast.success("Registered successfully!");
       } catch (error) {
@@ -76,6 +76,24 @@ export default function SignUp() {
       errors.password = 'Password should be at least 6 characters';
     }
 
+    if (!data.userName.trim()) {
+      errors.userName = 'Username is required';
+    }
+
+    if (!data.defaultPassword.trim()) {
+      errors.defaultPassword = 'Default password is required';
+    }
+
+    if (!data.emergencyContactName.trim()) {
+      errors.emergencyContactName = 'Emergency contact name is required';
+    }
+
+    if (!data.emergencyContactNumber.trim()) {
+      errors.emergencyContactNumber = 'Emergency contact number is required';
+    } else if (!/^\d{10}$/.test(data.emergencyContactNumber.trim())) {
+      errors.emergencyContactNumber = 'Emergency contact number must be 10 digits';
+    }
+
     return errors;
   };
 
@@ -87,8 +105,8 @@ export default function SignUp() {
         </h2>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" onSubmit={handleSubmit}>
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-3xl">
+        <form className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 " onSubmit={handleSubmit}>
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium leading-6 text-gray-900">
               First Name
@@ -185,7 +203,87 @@ export default function SignUp() {
             </div>
           </div>
 
+          {/* Username */}
           <div>
+            <label htmlFor="userName" className="block text-sm font-medium leading-6 text-gray-900">
+              Username
+            </label>
+            <div className="mt-2">
+              <input
+                id="userName"
+                name="userName"
+                type="text"
+                autoComplete="username"
+                required
+                value={formData.userName}
+                onChange={handleChange}
+                className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-550 sm:text-sm sm:leading-6 ${errors.userName ? 'border-red-500' : ''}`}
+              />
+              {errors.userName && <p className="text-red-500 text-sm mt-1">{errors.userName}</p>}
+            </div>
+          </div>
+
+          {/* Default Password */}
+          <div>
+            <label htmlFor="defaultPassword" className="block text-sm font-medium leading-6 text-gray-900">
+              Default Password For Employee
+            </label>
+            <div className="mt-2">
+              <input
+                id="defaultPassword"
+                name="defaultPassword"
+                type="text"
+                autoComplete="new-password"
+                required
+                value={formData.defaultPassword}
+                onChange={handleChange}
+                className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-550 sm:text-sm sm:leading-6 ${errors.defaultPassword ? 'border-red-500' : ''}`}
+              />
+              {errors.defaultPassword && <p className="text-red-500 text-sm mt-1">{errors.defaultPassword}</p>}
+            </div>
+          </div>
+
+          {/* Emergency Contact Name */}
+          <div>
+            <label htmlFor="emergencyContactName" className="block text-sm font-medium leading-6 text-gray-900">
+              Emergency Contact Name
+            </label>
+            <div className="mt-2">
+              <input
+                id="emergencyContactName"
+                name="emergencyContactName"
+                type="text"
+                autoComplete="emergency-contact-name"
+                required
+                value={formData.emergencyContactName}
+                onChange={handleChange}
+                className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-550 sm:text-sm sm:leading-6 ${errors.emergencyContactName ? 'border-red-500' : ''}`}
+              />
+              {errors.emergencyContactName && <p className="text-red-500 text-sm mt-1">{errors.emergencyContactName}</p>}
+            </div>
+          </div>
+
+          {/* Emergency Contact Number */}
+          <div>
+            <label htmlFor="emergencyContactNumber" className="block text-sm font-medium leading-6 text-gray-900">
+              Emergency Contact Number
+            </label>
+            <div className="mt-2">
+              <input
+                id="emergencyContactNumber"
+                name="emergencyContactNumber"
+                type="tel"
+                autoComplete="emergency-contact-number"
+                required
+                value={formData.emergencyContactNumber}
+                onChange={handleChange}
+                className={`block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-550 sm:text-sm sm:leading-6 ${errors.emergencyContactNumber ? 'border-red-500' : ''}`}
+              />
+              {errors.emergencyContactNumber && <p className="text-red-500 text-sm mt-1">{errors.emergencyContactNumber}</p>}
+            </div>
+          </div>
+
+          <div className='col-span-1 md:col-span-2 lg:col-span-3'>
             <button
               type="submit"
               className="flex w-full justify-center rounded-md bg-green-550 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"

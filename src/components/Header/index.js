@@ -101,7 +101,7 @@ export default function Header(props) {
                         <Link href="/superadmin/dashboard" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Dashboard</Link>
                       </li>
                       <li>
-                        <Link href="/superadmin/admin" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Employee</Link>
+                        <Link href="/superadmin/admin" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Customer</Link>
                       </li>
                     </>)}
                   <Dropdown title={currUser?.user?.firstName}>
