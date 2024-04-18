@@ -72,6 +72,9 @@ export default function MobileMenu(props) {
             {!props?.currUser &&
               <>
                 <li>
+                  <Link href="/apk" className="flex font-medium w-full text-gray-600 hover:text-gray-900 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>Download Apk</Link>
+                </li>
+                <li>
                   <Link href="/signin" className="flex font-medium w-full text-gray-600 hover:text-gray-900 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>Sign in</Link>
                 </li>
                 <li>
@@ -82,12 +85,13 @@ export default function MobileMenu(props) {
                     </svg>
                   </Link>
                 </li>
+
               </>
             }
 
             {props?.currUser &&
               (<>
-              <li>
+                <li>
                   <Link href="/superadmin/admin" className="flex font-medium w-full text-gray-600 hover:text-gray-900 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>Employee</Link>
                 </li>
                 <li>
